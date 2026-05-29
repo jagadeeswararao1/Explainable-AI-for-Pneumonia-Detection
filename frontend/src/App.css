@@ -1,0 +1,215 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: hsl(var(--text-muted));
+  font-size: 1.1rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Upload Component */
+.upload-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.upload-area {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-area:hover, .upload-area.drag-active {
+  border-color: hsl(var(--primary));
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.upload-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.upload-subtext {
+  color: hsl(var(--text-muted));
+  font-size: 0.9rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsla(var(--primary-glow), 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: hsl(var(--primary));
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Results Component */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.prediction-class {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: hsl(var(--success));
+}
+
+.confidence-bar-container {
+  width: 200px;
+}
+
+.confidence-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: hsl(var(--text-muted));
+}
+
+.confidence-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--primary)));
+  border-radius: 4px;
+  transition: width 1s ease-out;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: hsl(var(--text-muted));
+}
+
+.img-preview {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.img-preview:hover {
+  transform: scale(1.02);
+}
+
+.selected-preview {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.selected-preview img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: var(--border-radius-sm);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
